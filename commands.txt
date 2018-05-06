@@ -1,0 +1,21 @@
+echo {00001..01207} | tr ' ' '\n' | xargs -I % sh -c 'echo  wget http://192.168.86.25:18080/pvr/41997/segs/%.ts; wget http://192.168.86.25:18080/pvr/41997/segs/%.ts'
+
+echo {00001..01207} | tr ' ' '\n' | xargs -I % sh -c 'echo  wget http://192.168.86.25:18080/pvr/41997/segs/%.ts; wget http://192.168.86.25:18080/pvr/42596/segs/%.ts'
+FFMPEG -i "concat:file1.ts|file2.ts|.." -bsf:a aac_adtstoasc -c copy "DIRECTORY/FILENAME.mp4"'
+echo {00001..01207} | sed -e 's/ /\.ts /g' | sed -e 's/$/\.ts/' |  xargs -I % sh -c 'cat % > 1combo.ts'
+rm 0*.ts
+ffmpeg -i 1combo.ts -bsf:a aac_adtstoasc -c copy "0FILENAME.mp4"
+
+
+
+for summary 20180101
+
+echo {00001..01207} | tr ' ' '\n' | xargs -I % sh -c 'echo  wget http://192.168.86.25:18080/pvr/41997/segs/%.ts; wget http://192.168.86.25:18080/pvr/42596/segs/%.ts'
+
+echo {00001..01207} | sed -e 's/ /\.ts /g' | sed -e 's/$/\.ts/' |  xargs -I % sh -c 'cat % > 1combo.ts'
+
+rm 0*.ts
+
+ffmpeg -i 1combo.ts -bsf:a aac_adtstoasc -c copy "0FILENAME.mp4"
+
+
